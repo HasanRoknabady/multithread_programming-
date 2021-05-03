@@ -12,6 +12,17 @@ public class PICalculator {
      */
     public String calculate(int floatingPoint)
     {
-        return null;
+        Compute calculate = new Compute(floatingPoint+2);
+
+        try
+        {
+            StringBuilder out = new StringBuilder(calculate.compute().toString());
+            String strOut = out.deleteCharAt(out.length()-1).toString();
+            return strOut;
+        }
+        catch (InterruptedException exception) {
+            return exception.getMessage();
+        }
+
     }
 }
