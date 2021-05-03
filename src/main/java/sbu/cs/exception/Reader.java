@@ -10,7 +10,22 @@ public class Reader {
      *
      * @param args
      */
-    public void readTwitterCommands(List<String> args) {
+    public void readTwitterCommands(List<String> args) throws ApException
+    {
+        List<String> forNotImplementedCommand = Util.getNotImplementedCommands();
+        List<String> forUnrecognizedCommand  = Util.getImplementedCommands();
+
+        for (String a : args)
+        {
+            if(forNotImplementedCommand.contains(a)){
+                throw new
+                        NotImplementedCommand("Sorry reseon : not implemented commands");
+            }else if(!forUnrecognizedCommand.contains(a)){
+                throw new
+                        UnRecognizedCommand("MISSING " + a + " command");
+            }
+
+        }
     }
 
     /**
@@ -20,7 +35,22 @@ public class Reader {
      *
      * @param args
      */
-    public void read(String...args) {
-
+    public void read(String...args) throws BadInputException
+    {
+        boolean flag = false;
+        for (String arg: args)
+        {
+            if(flag)
+            {
+                //for match integer we use regex and in regex \\d use for num
+                if (!arg.matches("\\d+?"))
+                {
+                    throw new BadInputException("the even inputs must be an integer");
+                }
+                flag = false;
+            }else {
+                flag = true;
+            }
+        }
     }
 }

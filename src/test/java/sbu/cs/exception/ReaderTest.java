@@ -19,7 +19,8 @@ class ReaderTest {
     }
 
     @Test
-    void readCommandTwitterNoException() {
+    void readCommandTwitterNoException() throws ApException
+    {
         List<String> implementedCommands = Util.getImplementedCommands();
         Collections.shuffle(implementedCommands);
         reader.readTwitterCommands(implementedCommands);
@@ -45,7 +46,8 @@ class ReaderTest {
     }
 
     @Test
-    void readValidInput() {
+    void readValidInput() throws BadInputException
+    {
         reader.read("ap", "3", "9", "9", "2", "1400", "Beheshti", "38", "computer science");
     }
 

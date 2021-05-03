@@ -10,7 +10,8 @@ public class PICalculator {
      * @param floatingPoint number of digits after floating point
      * @return pi in string format
      */
-    public String calculate(int floatingPoint) {
+    public String calculate(int floatingPoint)
+    {
         return null;
     }
 }
