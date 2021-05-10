@@ -10,7 +10,19 @@ public class PICalculator {
      * @param floatingPoint number of digits after floating point
      * @return pi in string format
      */
-    public String calculate(int floatingPoint) {
-        return null;
+    public String calculate(int floatingPoint)
+    {
+        Compute calculate = new Compute(floatingPoint+2);
+
+        try
+        {
+            StringBuilder out = new StringBuilder(calculate.compute().toString());
+            String strOut = out.deleteCharAt(out.length()-1).toString();
+            return strOut;
+        }
+        catch (InterruptedException exception) {
+            return exception.getMessage();
+        }
+
     }
 }

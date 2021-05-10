@@ -1,6 +1,14 @@
 package sbu.cs.multithread.priority;
 
+import java.util.concurrent.CountDownLatch;
+
 public class WhiteThread extends ColorThread {
+
+    private final CountDownLatch countDownLatch;
+
+    public WhiteThread(CountDownLatch countDownLatch){
+        this.countDownLatch = countDownLatch;
+    }
 
     private static final String MESSAGE = "hi back blacks, hi back blues";
 
@@ -14,7 +22,9 @@ public class WhiteThread extends ColorThread {
     }
 
     @Override
-    public void run() {
-        // call printMessage
+    public void run()
+    {
+        printMessage();
+        countDownLatch.countDown();
     }
 }

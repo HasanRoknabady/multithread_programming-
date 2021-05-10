@@ -5,7 +5,8 @@ public class Message {
     private final String callerThreadColor;
     private final String message;
 
-    public Message(String callerThreadColor, String message) {
+    public Message(String callerThreadColor, String message)
+    {
         this.callerThreadColor = callerThreadColor;
         this.message = message;
     }
